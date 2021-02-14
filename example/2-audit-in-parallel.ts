@@ -1,3 +1,5 @@
+// usage: yarn run ts-node --files example/2-audit-in-parallel.ts
+
 import { resolve } from 'path';
 // eslint-disable-next-line @typescript-eslint/no-require-imports
 import Piscina = require('piscina');

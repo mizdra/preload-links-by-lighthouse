@@ -1,3 +1,5 @@
+// usage: yarn run ts-node --files example/1-print-preload-links.ts https://web.dev/
+
 import { auditNetworkRequest, filterByScript, generatePreloadLinks } from '../src/index';
 
 const url = process.argv[2];
