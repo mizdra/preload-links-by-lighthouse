@@ -2,25 +2,61 @@
 
 Generate html with embedded preload links using lighthouse
 
-## How to use
+## Installation
 
 ```bash
-$ git clone https://github.com/mizdra/preload-links-by-lighthouse
-$ cd preload-links-by-lighthouse
-$ yarn install
-$ yarn run dev https://web.dev/
-<link rel="preload" as="script" href="https://web.dev/bootstrap.js?v=12713bd8">
-<link rel="preload" as="script" href="https://web.dev/app-b9eb7802.js">
-<link rel="preload" as="script" href="https://web.dev/chunk-c1eead40.js">
-<link rel="preload" as="script" href="https://web.dev/default-f5cf78c3.js">
-<link rel="preload" as="script" href="https://web.dev/lit-1a9275ac.js">
-<link rel="preload" as="script" href="https://web.dev/chunk-cf097461.js">
-<link rel="preload" as="script" href="https://web.dev/chunk-88cbc230.js">
+$ npm i @mizdra/preload-links-by-lighthouse
 ```
 
-## How to dev
+## Usage
+
+```typescript
+import { auditNetworkRequest, filterByScript, generatePreloadLinks } from '@mizdra/preload-links-by-lighthouse';
+
+(async () => {
+  const networkRecords = await auditNetworkRequest('https://web.dev/', {
+    // pass the lighthouse options (optional)
+    logLevel: 'info',
+  });
+  const filteredNetworkRecords = networkRecords.filter(filterByScript);
+  const html = generatePreloadLinks({ networkRecords: filteredNetworkRecords });
+  console.log(html);
+  // output:
+  // <link rel="preload" href="https://web.dev/js/app.js?v=1d84cab8" as="script">
+  // <link rel="preload" href="https://web.dev/js/default.js?v=d79b36fb" as="script">
+  // <link rel="preload" href="https://www.google-analytics.com/analytics.js" as="script">
+  // <link rel="preload" href="https://web.dev/js/index-725dce56.js" as="script">
+  // <link rel="preload" href="https://web.dev/js/actions-2a4a4fee.js" as="script">
+  // <link rel="preload" href="https://www.gstatic.com/firebasejs/6.6.1/firebase-app.js" as="script">
+  // <link rel="preload" href="https://www.gstatic.com/firebasejs/6.6.1/firebase-auth.js" as="script">
+  // <link rel="preload" href="https://www.gstatic.com/firebasejs/6.6.1/firebase-performance.js" as="script">
+})().catch((err) => {
+  console.error(err);
+  process.exit(1);
+});
+```
+
+## Examples
+
+See [examples/](https://github.com/mizdra/preload-links-by-lighthouse/tree/main/example).
+
+## For Maintainers
+
+### How to dev
 
 - `yarn run start`: Run for production
 - `yarn run build`: Build for production
 - `yarn run dev`: Run for development
 - `yarn run check`: Try static-checking
+
+### How to release
+
+```console
+$ # Wait for passing CI...
+$ git switch master
+$ git pull
+$ yarn version
+$ rm -rf dist && yarn run build
+$ npm publish
+$ git push --follow-tags
+```
