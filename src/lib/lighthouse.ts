@@ -1,10 +1,18 @@
 import { launch } from 'chrome-launcher';
 import lighthouse, { TypedResult, NetworkRecord } from 'lighthouse';
 
-export async function auditNetworkRequest(url: string): Promise<NetworkRecord[]> {
+const DEFAULT_OPTIONS: LH.Flags = {
+  output: 'json',
+  onlyAudits: ['network-requests'],
+};
+
+export async function auditNetworkRequest(url: string, lighthouseOptions?: LH.Flags): Promise<NetworkRecord[]> {
   const chrome = await launch({ chromeFlags: ['--headless'] });
-  const options: LH.Flags = { logLevel: 'info', output: 'json', onlyAudits: ['network-requests'], port: chrome.port };
-  const report = await lighthouse(url, options);
+  const report = await lighthouse(url, {
+    ...DEFAULT_OPTIONS,
+    ...lighthouseOptions,
+    port: chrome.port,
+  });
   await chrome.kill();
 
   if (report === undefined) {

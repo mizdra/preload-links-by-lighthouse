@@ -9,7 +9,10 @@ if (url === undefined) {
 }
 
 (async () => {
-  const networkRecords = await auditNetworkRequest(url);
+  const networkRecords = await auditNetworkRequest(url, {
+    // pass the lighthouse options (optional)
+    logLevel: 'info',
+  });
   const filteredNetworkRecords = networkRecords.filter(filterByScript);
   const html = generatePreloadLinks({ networkRecords: filteredNetworkRecords });
   console.log(html);
