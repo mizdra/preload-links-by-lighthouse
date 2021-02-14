@@ -16,7 +16,9 @@
     "build:esm": "tsc -p tsconfig.json --module ESNext --outDir dist/esm",
     "dev": "yarn run ts-node --files example/print-preload-links.ts",
     "check": "run-s check:*",
-    "check:tsc": "tsc --noEmit",
+    "check:tsc": "run-s check:tsc:*",
+    "check:tsc:src": "tsc -p tsconfig.json --noEmit",
+    "check:tsc:example": "tsc -p example/tsconfig.json --noEmit",
     "check:eslint": "eslint src",
     "check:prettier": "prettier --check ."
   },
