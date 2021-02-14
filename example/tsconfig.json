@@ -1,0 +1,7 @@
+{
+  "extend": ["../tsconfig.json", "./**/*"],
+  "compilerOptions": {
+    /* Basic Options */
+    // "outDir": "./dist", // ts-node に移譲
+  }
+}

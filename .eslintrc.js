@@ -16,4 +16,15 @@ module.exports = {
     'prettier/prettier': 0,
     'import/no-extraneous-dependencies': 2,
   },
+  overrides: [
+    {
+      files: ['*.ts', '*.tsx'],
+      parserOptions: {
+        project: [
+          './tsconfig.json',
+          './example/tsconfig.json',
+        ],
+      },
+    },
+  ],
 };
