@@ -1,7 +1,7 @@
 {
   "name": "preload-links-by-lighthouse",
   "description": "Generate html with embedded preload links using lighthouse",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "repository": "https://github.com/mizdra/preload-links-by-lighthouse.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "license": "MIT",
