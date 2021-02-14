@@ -14,6 +14,15 @@ import { auditNetworkRequest, filterByScript, generatePreloadLinks } from '../sr
     },
   });
   console.log(html);
+  // output:
+  // <link rel="preload" href="https://example-cdn.com/js/app.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/js/default.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/analytics.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/js/index-725dce56.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/js/actions-2a4a4fee.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/firebasejs/6.6.1/firebase-app.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/firebasejs/6.6.1/firebase-auth.js" as="script">
+  // <link rel="preload" href="https://example-cdn.com/firebasejs/6.6.1/firebase-performance.js" as="script">
 })().catch((err) => {
   console.error(err);
   process.exit(1);
