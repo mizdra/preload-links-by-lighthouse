@@ -5,7 +5,7 @@
   "repository": "https://github.com/mizdra/preload-links-by-lighthouse.git",
   "author": "mizdra <pp.mizdra@gmail.com>",
   "license": "MIT",
-  "private": true,
+  "private": false,
   "main": "dist/umd/index.js",
   "module": "dist/esm/index.js",
   "sideEffects": false,
@@ -42,5 +42,18 @@
     "chrome-launcher": "^0.13.4",
     "devtools-protocol": "^0.0.852555",
     "lighthouse": "^7.0.1"
-  }
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org/"
+  },
+  "keywords": [
+    "lighthouse",
+    "performance",
+    "dynamic-analysis"
+  ],
+  "files": [
+    "src",
+    "dist"
+  ]
 }
