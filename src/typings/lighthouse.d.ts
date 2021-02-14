@@ -4,7 +4,7 @@
 /// <reference types="lighthouse/types/lhr" />
 
 declare module 'lighthouse' {
-  interface NetworkRequestsAuditDetailsItem {
+  export interface NetworkRecord {
     url: string;
     protocol: string;
     startTime: number;
@@ -16,19 +16,18 @@ declare module 'lighthouse' {
     mimeType: string;
     resourceType: string;
   }
-  interface NetworkRequestsAuditDetails {
-    items: NetworkRequestsAuditDetailsItem[];
+  export interface NetworkRequestsAuditDetails {
+    items: NetworkRecord[];
   }
-  interface NetworkRequestsAudit {
+  export interface NetworkRequestsAudit {
     details: NetworkRequestsAuditDetails;
   }
 
-  interface TypedResult {
+  export interface TypedResult {
     audits: {
       'network-requests': NetworkRequestsAudit;
     };
   }
-  export type { TypedResult };
 
   declare async function lighthouse(
     url,
