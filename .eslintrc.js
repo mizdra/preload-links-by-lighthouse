@@ -14,5 +14,6 @@ module.exports = {
   },
   rules: {
     'prettier/prettier': 0,
+    'import/no-extraneous-dependencies': 2,
   },
 };
