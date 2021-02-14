@@ -1,12 +1,12 @@
-# preload-link-generator
+# preload-links-by-lighthouse
 
-Generate the template with embedded preload links using puppeteer
+Generate html with embedded preload links using lighthouse
 
 ## How to use
 
 ```bash
-$ git clone https://github.com/mizdra/preload-link-generator
-$ cd preload-link-generator
+$ git clone https://github.com/mizdra/preload-links-by-lighthouse
+$ cd preload-links-by-lighthouse
 $ yarn install
 $ yarn run dev https://web.dev/
 <link rel="preload" as="script" href="https://web.dev/bootstrap.js?v=12713bd8">
