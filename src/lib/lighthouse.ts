@@ -1,5 +1,48 @@
 import { launch } from 'chrome-launcher';
-import lighthouse, { TypedResult, NetworkRecord } from 'lighthouse';
+import lighthouse from 'lighthouse';
+
+export interface NetworkRecord {
+  url: string;
+  protocol: string;
+  startTime: number;
+  endTime: number;
+  finished: boolean;
+  transferSize: number;
+  resourceSize: number;
+  statusCode: number;
+  mimeType: string;
+  resourceType:
+    | 'XHR'
+    | 'Fetch'
+    | 'EventSource'
+    | 'Script'
+    | 'Stylesheet'
+    | 'Image'
+    | 'Media'
+    | 'Font'
+    | 'Document'
+    | 'TextTrack'
+    | 'WebSocket'
+    | 'Other'
+    | 'Manifest'
+    | 'SignedExchange'
+    | 'Ping'
+    | 'CSPViolationReport'
+    | string; // conservatively
+}
+
+export interface NetworkRequestsAuditDetails {
+  items: NetworkRecord[];
+}
+export interface NetworkRequestsAudit {
+  details: NetworkRequestsAuditDetails;
+}
+
+export interface TypedResult {
+  audits: {
+    'network-requests': NetworkRequestsAudit;
+  };
+}
 
 const DEFAULT_OPTIONS: LH.Flags = {
   output: 'json',

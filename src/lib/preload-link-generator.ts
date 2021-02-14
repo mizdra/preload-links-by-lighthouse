@@ -1,4 +1,4 @@
-import { NetworkRecord } from 'lighthouse';
+import { NetworkRecord } from './lighthouse';
 
 export type HrefMapper = (networkRecord: NetworkRecord) => string;
 export type AsMapper = (networkRecord: NetworkRecord) => string | undefined;
