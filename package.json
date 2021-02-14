@@ -39,6 +39,7 @@
   },
   "dependencies": {
     "chrome-launcher": "^0.13.4",
+    "devtools-protocol": "^0.0.852555",
     "lighthouse": "^7.0.1"
   }
 }

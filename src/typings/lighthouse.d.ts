@@ -1,8 +1,3 @@
-/// <reference types="lighthouse/types/externs" />
-/// <reference types="lighthouse/types/config" />
-/// <reference types="lighthouse/types/artifacts" />
-/// <reference types="lighthouse/types/lhr" />
-
 declare module 'lighthouse' {
   // There is no official type definition provided for NetworkRecord.
   // Therefore, I guessed it from the lighthouse source code.

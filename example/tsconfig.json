@@ -1,5 +1,6 @@
 {
-  "extend": ["../tsconfig.json", "./**/*"],
+  "extend": ["../tsconfig.json"],
+  "include": ["./**/*"],
   "compilerOptions": {
     /* Basic Options */
     // "outDir": "./dist", // ts-node に移譲
