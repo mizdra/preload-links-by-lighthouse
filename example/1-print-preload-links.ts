@@ -6,7 +6,6 @@ const url = process.argv[2];
 
 if (url === undefined) {
   console.error('URL not passed');
-  console.error('preload-link-generator <URL>');
   process.exit(1);
 }
 
