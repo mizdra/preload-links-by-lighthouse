@@ -4,6 +4,10 @@
 /// <reference types="lighthouse/types/lhr" />
 
 declare module 'lighthouse' {
+  // There is no official type definition provided for NetworkRecord.
+  // Therefore, I guessed it from the lighthouse source code.
+  // To avoid runtime errors, our type definition are designed to be conservative.
+  // ref: https://github.com/GoogleChrome/lighthouse/blob/8caa938b41f3330c393fcf2a1226ffb4afe89b55/lighthouse-core/lib/network-request.js#L73
   export interface NetworkRecord {
     url: string;
     protocol: string;
@@ -14,7 +18,24 @@ declare module 'lighthouse' {
     resourceSize: number;
     statusCode: number;
     mimeType: string;
-    resourceType: string;
+    resourceType:
+      | 'XHR'
+      | 'Fetch'
+      | 'EventSource'
+      | 'Script'
+      | 'Stylesheet'
+      | 'Image'
+      | 'Media'
+      | 'Font'
+      | 'Document'
+      | 'TextTrack'
+      | 'WebSocket'
+      | 'Other'
+      | 'Manifest'
+      | 'SignedExchange'
+      | 'Ping'
+      | 'CSPViolationReport'
+      | string; // conservatively
   }
   export interface NetworkRequestsAuditDetails {
     items: NetworkRecord[];
