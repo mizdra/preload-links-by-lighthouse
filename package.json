@@ -14,7 +14,7 @@
     "build": "run-s build:*",
     "build:umd": "tsc -p tsconfig.json --module UMD --outDir dist/umd",
     "build:esm": "tsc -p tsconfig.json --module ESNext --outDir dist/esm",
-    "dev": "yarn run ts-node --files example/print-preload-links.ts",
+    "dev": "yarn run ts-node --files example/1-print-preload-links.ts",
     "check": "run-s check:*",
     "check:tsc": "run-s check:tsc:*",
     "check:tsc:src": "tsc -p tsconfig.json --noEmit",
