@@ -2,6 +2,9 @@
 
 Generate html with embedded preload links using lighthouse
 
+## Caution
+This library is PoC. It is **NOT** production-ready.
+
 ## Installation
 
 ```bash
